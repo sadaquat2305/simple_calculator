@@ -42,7 +42,7 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
           emit(ResultState(result: result));
           _exp = result;
         } else {
-          print('Resut: after $result');
+          print('Result: after $result');
           emit(ResultState(result: result));
           _exp = result;
         }

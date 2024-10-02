@@ -14,9 +14,9 @@ class CalculatorKeyboar extends StatelessWidget {
             child: const Row(
               children: [
                 CalculatorButton(
-                  label: '(',
+                  label: '^',
                 ),
-                CalculatorButton(label: ')'),
+                CalculatorButton(label: '!'),
                 CalculatorButton(label: '⌫'),
                 CalculatorButton(label: 'C')
               ],

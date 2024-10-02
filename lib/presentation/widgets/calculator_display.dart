@@ -15,7 +15,7 @@ class CalculatorDisplay extends StatelessWidget {
       child: Container(
         color: Colors.black,
         alignment: Alignment.centerRight,
-        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
         child: Text(
           displayText,
           style: const TextStyle(
