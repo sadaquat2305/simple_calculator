@@ -15,11 +15,20 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
     on<AppendCharacterEvent>((event, emit) {
       final lastChar = _exp.isNotEmpty ? _exp[_exp.length - 1] : '';
 
-      // Check if the entered character is an operator
+      // Prevent consecutive operators
       if (operators.contains(event.character)) {
-        // If the last character is also an operator, don't append
         if (operators.contains(lastChar)) {
           return; // Prevent adding consecutive operators
+        }
+      }
+
+      // Prevent multiple decimal points in a number
+      if (event.character == '.') {
+        // Check if there's already a decimal point in the current number
+        String lastNumber =
+            _exp.split(RegExp(r'[\+\-\*/]')).last; // Split by operators
+        if (lastNumber.contains('.')) {
+          return; // Prevent adding another decimal point
         }
       }
 
