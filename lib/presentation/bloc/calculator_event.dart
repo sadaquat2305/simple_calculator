@@ -1,7 +1,6 @@
 part of 'calculator_bloc.dart';
 
-@immutable
-sealed class CalculatorEvent {}
+abstract class CalculatorEvent {}
 
 class AppendCharacterEvent extends CalculatorEvent {
   final String character;

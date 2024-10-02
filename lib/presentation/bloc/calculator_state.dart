@@ -1,7 +1,6 @@
 part of 'calculator_bloc.dart';
 
-@immutable
-sealed class CalculatorState {}
+abstract class CalculatorState {}
 
 final class InitialState extends CalculatorState {
   final String result;

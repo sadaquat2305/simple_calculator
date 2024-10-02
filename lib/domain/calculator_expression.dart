@@ -11,7 +11,9 @@ class CalculatorExpresson {
 
       double eval = exp.evaluate(EvaluationType.REAL, cm);
 
-      return eval.toString();
+      String result = eval.toStringAsFixed(1);
+
+      return result;
     } catch (e) {
       return 'Error';
     }

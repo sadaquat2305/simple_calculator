@@ -1,5 +1,4 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_calculator_app/domain/calculator_expression.dart';
 import 'package:simple_calculator_app/domain/expresson_entity.dart';
 
@@ -30,11 +29,24 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
     });
 
     on<EqualOperation>((event, emit) {
-      var result = usecase.calculateExp(ExpressionValue(exp: _exp));
+      if (_exp == '') {
+        emit(InitialState(''));
+      } else {
+        var result = usecase.calculateExp(ExpressionValue(exp: _exp));
 
-      _exp = result;
+        print('Result: $result');
 
-      emit(ResultState(result: result));
+        if (result.endsWith(".0")) {
+          result = result.substring(0, result.length - 2);
+
+          emit(ResultState(result: result));
+          _exp = result;
+        } else {
+          print('Resut: after $result');
+          emit(ResultState(result: result));
+          _exp = result;
+        }
+      }
     });
   }
 }
