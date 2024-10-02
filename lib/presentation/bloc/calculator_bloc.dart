@@ -46,6 +46,10 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
           emit(ResultState(result: result));
           _exp = result;
         }
+
+        if (result == 'Error') {
+          _exp = '';
+        }
       }
     });
   }

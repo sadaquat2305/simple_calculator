@@ -6,7 +6,7 @@ import '../bloc/calculator_bloc.dart';
 class CalculatorButton extends StatelessWidget {
   final String label;
 
-  const CalculatorButton({required this.label});
+  const CalculatorButton({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {

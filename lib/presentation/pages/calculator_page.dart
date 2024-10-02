@@ -6,10 +6,12 @@ import 'package:simple_calculator_app/presentation/widgets/calculator_keyboard.d
 import '../bloc/calculator_bloc.dart';
 
 class CalculatorPage extends StatelessWidget {
+  const CalculatorPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Calculator')),
+      appBar: AppBar(title: const Text('Calculator')),
       body: Column(
         children: [
           // Display area using a flexible ratio
