@@ -11,7 +11,10 @@ class CalculatorExpresson {
 
       double eval = exp.evaluate(EvaluationType.REAL, cm);
 
-      String result = eval.toStringAsFixed(1);
+      String result = eval.toStringAsFixed(2);
+      if (result.endsWith('.00')) {
+        result = result.substring(0, result.length - 3);
+      }
 
       return result;
     } catch (e) {
