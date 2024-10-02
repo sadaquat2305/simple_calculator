@@ -4,30 +4,38 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/calculator_bloc.dart';
 
 class CalculatorButton extends StatelessWidget {
-  final String text;
+  final String label;
 
-  const CalculatorButton({required this.text});
+  const CalculatorButton({required this.label});
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        if (text == '=') {
-          context.read<CalculatorBloc>().add(EqualOperation());
-        } else if (text == 'C') {
-          context.read<CalculatorBloc>().add(ClearAllEvent());
-        } else if (text == '⌫') {
-          context.read<CalculatorBloc>().add(BackSpaceEvent());
-        } else {
-          context.read<CalculatorBloc>().add(AppendCharacterEvent(text));
-        }
-      },
-      style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.all(24), // Padding for button size
-      ),
-      child: Text(
-        text,
-        style: TextStyle(fontSize: 24),
+    return Expanded(
+      child: AspectRatio(
+        aspectRatio:
+            1, // Ensures the button is circular by keeping width and height equal
+        child: Container(
+          margin: const EdgeInsets.all(
+              8), // Optional: Add margin for spacing between buttons
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                primary: Colors.blueGrey,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                        12)) // Use CircleBorder for circular shape
+                ),
+            onPressed: () {
+              // Handle button press
+            },
+            child: Text(
+              label,
+              style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
+          ),
+        ),
       ),
     );
   }

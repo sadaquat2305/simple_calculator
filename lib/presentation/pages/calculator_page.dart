@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_calculator_app/presentation/widgets/calculator_button_grid.dart';
+import 'package:simple_calculator_app/presentation/widgets/calculator_display.dart';
+import 'package:simple_calculator_app/presentation/widgets/calculator_keyboard.dart';
 import '../bloc/calculator_bloc.dart';
 
 class CalculatorPage extends StatelessWidget {
@@ -21,44 +23,12 @@ class CalculatorPage extends StatelessWidget {
               } else if (state is ResultState) {
                 display = state.result;
               }
-              return Container(
-                alignment: Alignment.bottomRight,
-                padding: EdgeInsets.all(24),
-                color: Colors.black87, // Background color for display
-                child: Text(
-                  display,
-                  style: TextStyle(
-                    fontSize: 48,
-                    color: Colors.white, // Text color for display
-                  ),
-                ),
-              );
+              return CalculatorDisplay(displayText: display);
             },
           ),
-
-          _buildKeypad(context),
+          CalculatorKeyboar()
         ],
       ),
-    );
-  }
-
-  Widget _buildKeypad(BuildContext context) {
-    return Column(
-      children: [
-        // Each row represents one line of buttons
-        _buildButtonRow(context, ['(', ')', '⌫', 'C']),
-        _buildButtonRow(context, ['7', '8', '9', '/']),
-        _buildButtonRow(context, ['4', '5', '6', '*']),
-        _buildButtonRow(context, ['1', '2', '3', '-']),
-        _buildButtonRow(context, ['.', '0', '=', '+'])
-      ],
-    );
-  }
-
-  Widget _buildButtonRow(BuildContext context, List<String> buttonTexts) {
-    return Row(
-      children:
-          buttonTexts.map((text) => CalculatorButton(text: text)).toList(),
     );
   }
 }

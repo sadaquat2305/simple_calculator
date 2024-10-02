@@ -10,15 +10,19 @@ class CalculatorDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.centerRight,
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 24),
-      child: Text(
-        displayText,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 48,
-          fontWeight: FontWeight.bold,
+    return Expanded(
+      flex: 2,
+      child: Container(
+        color: Colors.black,
+        alignment: Alignment.centerRight,
+        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 24),
+        child: Text(
+          displayText,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 48,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
