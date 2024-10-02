@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Calculator App',
       home: BlocProvider(
         create: (_) => CalculatorBloc(CalculatorExpresson()),
-        child: CalculatorPage(),
+        child: const CalculatorPage(),
       ),
     );
   }

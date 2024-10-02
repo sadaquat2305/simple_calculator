@@ -9,10 +9,24 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
   final CalculatorExpresson usecase;
 
   String _exp = '';
+  final List<String> operators = ['+', '-', '*', '/'];
 
   CalculatorBloc(this.usecase) : super(InitialState('0')) {
     on<AppendCharacterEvent>((event, emit) {
+      final lastChar = _exp.isNotEmpty ? _exp[_exp.length - 1] : '';
+
+      // Check if the entered character is an operator
+      if (operators.contains(event.character)) {
+        // If the last character is also an operator, don't append
+        if (operators.contains(lastChar)) {
+          return; // Prevent adding consecutive operators
+        }
+      }
+
+      // Append the character if it's valid
       _exp += event.character;
+
+      // Emit the updated state
       emit(UpdateState(display: _exp));
     });
 
