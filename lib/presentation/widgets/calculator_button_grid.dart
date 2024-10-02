@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +27,15 @@ class CalculatorButton extends StatelessWidget {
                         12)) // Use CircleBorder for circular shape
                 ),
             onPressed: () {
-              // Handle button press
+              if (label == 'C') {
+                context.read<CalculatorBloc>().add(ClearAllEvent());
+              } else if (label == '⌫') {
+                context.read<CalculatorBloc>().add(BackSpaceEvent());
+              } else if (label == '=') {
+                context.read<CalculatorBloc>().add(EqualOperation());
+              } else {
+                context.read<CalculatorBloc>().add(AppendCharacterEvent(label));
+              }
             },
             child: Text(
               label,

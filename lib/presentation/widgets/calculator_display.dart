@@ -18,7 +18,7 @@ class CalculatorDisplay extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 12, vertical: 24),
         child: Text(
           displayText,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 48,
             fontWeight: FontWeight.bold,

@@ -11,9 +11,11 @@ class CalculatorKeyboar extends StatelessWidget {
         children: [
           Expanded(
               child: Container(
-            child: Row(
+            child: const Row(
               children: [
-                CalculatorButton(label: '('),
+                CalculatorButton(
+                  label: '(',
+                ),
                 CalculatorButton(label: ')'),
                 CalculatorButton(label: '⌫'),
                 CalculatorButton(label: 'C')
@@ -22,7 +24,7 @@ class CalculatorKeyboar extends StatelessWidget {
           )),
           Expanded(
               child: Container(
-            child: Row(
+            child: const Row(
               children: [
                 CalculatorButton(label: '7'),
                 CalculatorButton(label: '8'),
@@ -33,18 +35,18 @@ class CalculatorKeyboar extends StatelessWidget {
           )),
           Expanded(
               child: Container(
-            child: Row(
+            child: const Row(
               children: [
                 CalculatorButton(label: '4'),
                 CalculatorButton(label: '5'),
                 CalculatorButton(label: '6'),
-                CalculatorButton(label: 'X')
+                CalculatorButton(label: '*')
               ],
             ),
           )),
           Expanded(
               child: Container(
-            child: Row(
+            child: const Row(
               children: [
                 CalculatorButton(label: '1'),
                 CalculatorButton(label: '2'),
@@ -55,7 +57,7 @@ class CalculatorKeyboar extends StatelessWidget {
           )),
           Expanded(
               child: Container(
-            child: Row(
+            child: const Row(
               children: [
                 CalculatorButton(label: '.'),
                 CalculatorButton(label: '0'),
