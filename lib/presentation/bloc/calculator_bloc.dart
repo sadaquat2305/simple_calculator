@@ -56,8 +56,9 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
     }));
 
     on<ClearAllEvent>((event, emit) {
-      _exp = '';
-      emit(InitialState(''));
+      _exp = ''; // Clear the expression
+      emit(UpdateState(
+          display: '0')); // Emit a default display state, such as '0'
     });
 
     on<BackSpaceEvent>((event, emit) {

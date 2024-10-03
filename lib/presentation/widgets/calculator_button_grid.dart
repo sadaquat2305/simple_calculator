@@ -10,20 +10,23 @@ class CalculatorButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get the width of the screen
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    // Define a base font size and scale it with screen width
+    double fontSize = screenWidth * 0.06; // Adjust the multiplier as needed
+
     return Expanded(
       child: AspectRatio(
-        aspectRatio:
-            1, // Ensures the button is circular by keeping width and height equal
+        aspectRatio: 1, // Ensures the button is circular
         child: Container(
-          margin: const EdgeInsets.all(
-              8), // Optional: Add margin for spacing between buttons
+          margin: const EdgeInsets.all(8), // Optional: Add margin for spacing
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: Colors.blueGrey,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                        12)) // Use CircleBorder for circular shape
-                ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(45), // Rounded corners
+              ),
+            ),
             onPressed: () {
               if (label == 'C') {
                 context.read<CalculatorBloc>().add(ClearAllEvent());
@@ -39,10 +42,12 @@ class CalculatorButton extends StatelessWidget {
             },
             child: Text(
               label,
-              style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
+              style: TextStyle(
+                fontSize:
+                    fontSize, // Set dynamic font size based on screen width
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
           ),
         ),

@@ -12,7 +12,6 @@ class CalculatorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(title: const Text('Calculator')),
       body: Column(
         children: [
           // Display area using a flexible ratio

@@ -10,10 +10,16 @@ class CalculatorDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get the width of the screen
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    // Define a base font size and scale it with screen width
+    double fontSize = screenWidth * 0.1; // Adjust the multiplier as needed
+
     return Expanded(
       flex: 2,
       child: Container(
-        color: Colors.black,
+        color: Colors.white,
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
         child: FittedBox(
@@ -21,9 +27,9 @@ class CalculatorDisplay extends StatelessWidget {
           alignment: Alignment.centerRight, // Align the text to the right
           child: Text(
             displayText,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 48, // Initial font size (it will scale down if needed)
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: fontSize, // Dynamically set the font size
               fontWeight: FontWeight.bold,
             ),
           ),

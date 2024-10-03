@@ -6,7 +6,7 @@ class CalculatorKeyboar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 3,
+      flex: 5,
       child: Column(
         children: [
           Expanded(
