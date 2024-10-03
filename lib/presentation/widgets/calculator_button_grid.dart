@@ -31,6 +31,8 @@ class CalculatorButton extends StatelessWidget {
                 context.read<CalculatorBloc>().add(BackSpaceEvent());
               } else if (label == '=') {
                 context.read<CalculatorBloc>().add(EqualOperation());
+              } else if (label == '%') {
+                context.read<CalculatorBloc>().add(PercentageEvent());
               } else {
                 context.read<CalculatorBloc>().add(AppendCharacterEvent(label));
               }

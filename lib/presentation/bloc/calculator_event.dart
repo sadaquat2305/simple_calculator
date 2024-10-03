@@ -8,6 +8,8 @@ class AppendCharacterEvent extends CalculatorEvent {
   AppendCharacterEvent(this.character);
 }
 
+class PercentageEvent extends CalculatorEvent {}
+
 class ClearAllEvent extends CalculatorEvent {}
 
 class BackSpaceEvent extends CalculatorEvent {}

@@ -16,12 +16,16 @@ class CalculatorDisplay extends StatelessWidget {
         color: Colors.black,
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
-        child: Text(
-          displayText,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 48,
-            fontWeight: FontWeight.bold,
+        child: FittedBox(
+          fit: BoxFit.scaleDown, // Scale the text down if it's too large
+          alignment: Alignment.centerRight, // Align the text to the right
+          child: Text(
+            displayText,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 48, // Initial font size (it will scale down if needed)
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),

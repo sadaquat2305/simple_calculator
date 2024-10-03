@@ -9,11 +9,19 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
   final CalculatorExpresson usecase;
 
   String _exp = '';
-  final List<String> operators = ['+', '-', '*', '/'];
+  final List<String> operators = ['+', '-', '*', '/', '^'];
 
   CalculatorBloc(this.usecase) : super(InitialState('0')) {
     on<AppendCharacterEvent>((event, emit) {
       final lastChar = _exp.isNotEmpty ? _exp[_exp.length - 1] : '';
+
+      // Prevent consecutive operators
+      if (operators.contains(event.character)) {
+        // If the expression is empty and first character is an operator, do nothing
+        if (_exp.isEmpty) {
+          return; // Prevent the first character from being an operator
+        }
+      }
 
       // Prevent consecutive operators
       if (operators.contains(event.character)) {
@@ -38,6 +46,14 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
       // Emit the updated state
       emit(UpdateState(display: _exp));
     });
+
+    on<PercentageEvent>(((event, emit) {
+      double percentageValue = double.parse(_exp) / 100;
+
+      String result = percentageValue.toString();
+
+      emit(ResultState(result: result));
+    }));
 
     on<ClearAllEvent>((event, emit) {
       _exp = '';

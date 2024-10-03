@@ -16,7 +16,7 @@ class CalculatorKeyboar extends StatelessWidget {
                 CalculatorButton(
                   label: '^',
                 ),
-                CalculatorButton(label: '!'),
+                CalculatorButton(label: '%'),
                 CalculatorButton(label: '⌫'),
                 CalculatorButton(label: 'C')
               ],
